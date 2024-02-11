@@ -42,3 +42,15 @@ header {
   border-bottom: 1px solid white;
   align-items: center;
 }
+
+ul {
+  padding: 0;
+}
+
+li {
+  border: 1px solid salmon;
+  margin: 20px;
+  list-style-type: none;
+  border-radius: 12px;
+  padding: 4px 20px;
+}
