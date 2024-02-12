@@ -1,16 +1,23 @@
 import Header from './components/Header'
 import WayToTeach from './components/WayToTeach'
 import Button from './components/Button/Button'
-import { ways } from './data'
+import { ways, differences } from './data'
 import { useState } from 'react'
 
 export default function App() {
-  const [content, setContent] = useState('Нажми на кнопку')
+  const [contentType, setContentType] = useState()
 
   function handleClick(type) {
     // console.log('button clicked', type)
-    setContent(type)
+    setContentType(type)
   }
+
+  // let tabContent = null
+  // if (contentType) {
+  //   tabContent = <p>{differences[contentType]}</p>
+  // } else {
+  //   tabContent = <p>Press the button</p>
+  // }
 
   return (
     <>
@@ -31,11 +38,36 @@ export default function App() {
         </section>
         <section>
           <h3>Чем мы отличаемся от других</h3>
-          <Button onClick={() => handleClick('way')}>Подход</Button>
-          <Button onClick={() => handleClick('easy')}>Доступность</Button>
-          <Button onClick={() => handleClick('program')}>Концентрация</Button>
+          <Button
+            isActive={contentType === 'way'}
+            onClick={() => handleClick('way')}
+          >
+            Подход
+          </Button>
+          <Button
+            isActive={contentType === 'easy'}
+            onClick={() => handleClick('easy')}
+          >
+            Доступность
+          </Button>
+          <Button
+            isActive={contentType === 'program'}
+            onClick={() => handleClick('program')}
+          >
+            Концентрация
+          </Button>
+          {/* {contentType ? (
+            <p>{differences[contentType]}</p>
+          ) : (
+            <p>Press the button</p>
+          )} */}
+          {/* {!contentType ? <p>Press the button</p> : null}
+          {contentType ? <p>{differences[contentType]}</p> : null} */}
 
-          <p>{content}</p>
+          {!contentType && <p>Press the button</p>}
+          {contentType && <p>{differences[contentType]}</p>}
+
+          {/* {tabContent} */}
         </section>
       </main>
     </>
