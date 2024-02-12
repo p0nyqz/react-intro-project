@@ -1,14 +1,15 @@
 import logo from '/vite.svg'
+import { useState } from 'react'
 
 export default function Header() {
-  const now = new Date()
   const name = 'Vite'
+  const [now, setTimer] = useState(new Date())
+  setInterval(() => setTimer(new Date()), 1000)
 
   return (
     <header>
       <img src={logo} alt={name}></img>
-      {/* <h3>Result University</h3> */}
-      <span>Time now is: {now.toLocaleTimeString()} </span>
+      <span>Time now is: {now.toLocaleTimeString()}</span>
     </header>
   )
 }
