@@ -54,3 +54,7 @@ li {
   border-radius: 12px;
   padding: 4px 20px;
 }
+
+.centered {
+  text-align: center;
+}
